@@ -1,0 +1,15 @@
+<h3><b><em>Editar Setor</em></b></h3>
+<br/>
+
+<?php
+$form = $this->form;
+
+$form->setAttribute('action', $this->url('m2smart-admin-interna', array('controller' => 'setores ', 'action' => 'edit')));
+
+$form->prepare();
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('nome'))."<br/>"."<br/>";
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+?>

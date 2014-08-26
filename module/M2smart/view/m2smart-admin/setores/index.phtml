@@ -1,0 +1,38 @@
+
+<h4 align="center" class="alert alert-success"><em> Trabalhando com Zend Framework</em>
+       </h4>
+
+
+<br/>
+<p> <a href="<?php echo $this->url('m2smart-admin',array('controller'=>'setores','action'=>'new'));?>"><b><em>Novo Setor</em></b></a></p>
+
+
+<table  class="table">
+    <thead>     
+        <tr class="success">
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+    </thead>
+     
+
+    <?php foreach ($this->data as $entity): ?>
+        <tr>
+            <td><?= $entity->getId() ?></td>
+            <td><?= $entity->getNome() ?></td>
+          <td>
+                <a href="<?php echo $this->url('m2smart-admin-interna',array('controller' => 'setores', 'action' => 'edit', 'id' => $entity->getId()));
+    ?>">Editar</a></td>
+               
+                <td> 
+                <a href="<?php echo $this->url('m2smart-admin-interna',
+                        array('controller' => 'setores', 'action' => 'delete', 'id' => $entity->getId()));
+    ?>">Deletar</a>
+
+           </td>
+        </tr>
+    <?php endforeach; ?>
+
+</table>
