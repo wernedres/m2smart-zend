@@ -5,6 +5,8 @@ namespace M2smart;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use M2smart\Service\Setor as SetorService;
+use M2smart\Service\Funcionario as FuncionarioService;
+use M2smartAdmin\Form\Funcionario as FuncionarioFrm;
 
 class Module
 {
@@ -28,15 +30,21 @@ class Module
     public function getServiceConfig() {
         return array(
             'factories' => array(
-            'Livraria\Model\CategoriaService' => function($service) {
-            $dbAdapter = $service->get('Zend\Db\Adapter\Adapter');
-            $categoriaTable = new CategoriaTable($dbAdapter);
-            $categoriaService = new Model\CategoriaService($categoriaTable);
-            return $categoriaService;
             
-  },
-                'M2smart\Service\Setor' => function($service) {
+            'M2smart\Service\Setor' => function($service) {
             return new SetorService($service->get('Doctrine\ORM\EntityManager'));
+         
+                },
+            'M2smart\Service\Funcionario' => function($service) {
+            return new FuncionarioService($service->get('Doctrine\ORM\EntityManager'));
+         
+                },
+            'M2smartAdmin\Form\Funcionario' => function($service) {
+               $em = $service->get('Doctrine\ORM\EntityManager');
+               $repository = $em->getRepository('M2smart\Entity\Setor');
+               $setores = $repository->fetchPairs();
+                 
+               return new FuncionarioFrm(null, $setores);
          
                 }
             ),

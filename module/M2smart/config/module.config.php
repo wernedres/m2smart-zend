@@ -43,6 +43,7 @@ return array(
         'invokables' => array(
             'M2smart\Controller\Index' => 'M2smart\Controller\IndexController',
              'setores' => 'M2smartAdmin\Controller\SetoresController',
+             'funcionarios' => 'M2smartAdmin\Controller\FuncionariosController',
          
             ),
     ),

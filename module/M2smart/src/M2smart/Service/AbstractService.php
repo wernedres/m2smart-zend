@@ -1,9 +1,9 @@
 <?php
 
-namespace Livraria\Service;
+namespace M2smart\Service;
 
 use Doctrine\ORM\EntityManager;
-use Livraria\Entity\Configurator;
+use M2smart\Entity\Configurator;
 
 abstract class AbstractService {
 

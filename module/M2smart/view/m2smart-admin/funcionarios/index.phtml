@@ -1,0 +1,39 @@
+<h3>Funcionarios</h3>
+<br/>
+
+<p> <a href="<?php echo $this->url('m2smart-admin',array('controller'=>'funcionarios','action'=>'new'));?>">Novo</a></p>
+
+
+<table  class="table">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Setor</th>
+        <th>Telefone</th>
+        <th>Salario</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+
+    <?php foreach ($this->data as $entity): ?>
+        <tr>
+            <td><?= $entity->getId() ?></td>
+            <td><?= $entity->getNome() ?></td>
+            <td><?= $entity->getSetor() ?></td>
+            <td><?= $entity->getTelefone() ?></td>
+            <td><?= $entity->getSalario() ?></td>
+          
+            <td>
+                <a href="<?php echo $this->url('m2smart-admin-interna',array('controller' => 'funcionarios', 'action' => 'edit', 'id' => $entity->getId()));
+    ?>">Editar</a></td>
+               
+                <td> 
+                <a href="<?php echo $this->url('m2smart-admin-interna',
+                        array('controller' => 'funcionarios', 'action' => 'delete', 'id' => $entity->getId()));
+    ?>">Deletar</a>
+
+           </td>
+        </tr>
+    <?php endforeach; ?>
+
+</table>

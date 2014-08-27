@@ -14,7 +14,7 @@ class Setor {
     
     public function __construct($options = null) {
         Configurator::configure($this,$options);
-//        $this-> = new ArrayCollection();
+       $this->funcionarios = new ArrayCollection();
         
     }
 
@@ -32,10 +32,10 @@ class Setor {
      */ 
     protected $nome;
 
-//    /**
-//     * @ORM\OneToMany(targetEntity="Livraria\Entity\Livro", mappedBy="categoria")
-//     */ 
-//    protected $livros;
+    /**
+     * @ORM\OneToMany(targetEntity="M2smart\Entity\Funcionario", mappedBy="setor")
+     */ 
+    protected $funcionarios;
     
     public function getId() {
         return $this->id;
@@ -57,9 +57,9 @@ class Setor {
         return $this->nome;
     }
     
-//    public function getLivros(){
-//        return $this->livros;
-//    }
+    public function getFuncionarios(){
+        return $this->funcionarios;
+    }
 
     public function toArray() {
         return array(

@@ -1,22 +1,22 @@
 <?php
 
-namespace Livraria\Service;
+namespace M2smart\Service;
 
 use Doctrine\ORM\EntityManager;
-use Livraria\Entity\Configurator;
+use M2smart\Entity\Configurator;
 
-class Livro extends AbstractService {
+class Funcionario extends AbstractService {
 
     public function __construct(EntityManager $em) {
         parent::__construct($em);
-        $this->entity = 'Livraria\Entity\Livro';
+        $this->entity = 'M2smart\Entity\Funcionario';
     }
 
     public function insert(array $data) {
         $entity = new $this->entity($data);
 
-        $categoria = $this->em->getReference("Livraria\Entity\Categoria", $data['categoria']); //getReference não faz consulta no banco de dados
-        $entity->setCategoria($categoria);
+        $setor = $this->em->getReference("M2smart\Entity\Setor", $data['setor']); //getReference não faz consulta no banco de dados
+        $entity->setSetor($setor);
 
         $this->em->persist($entity);
         $this->em->flush();
@@ -28,8 +28,8 @@ class Livro extends AbstractService {
         $entity = $this->em->getReference($this->entity, $data['id']);
         $entity = Configurator::configure($entity,$data); //com configurator nos estamos pegando e passando os gets and sets
 
-        $categoria = $this->em->getReference("Livraria\Entity\Categoria", $data['categoria']); //getReference não faz consulta no banco de dados
-        $entity->setCategoria($categoria);
+        $setor = $this->em->getReference("M2smart\Entity\Setor", $data['setor']); //getReference não faz consulta no banco de dados
+        $entity->setSetor($setor);
 
         $this->em->persist($entity);
         $this->em->flush();
