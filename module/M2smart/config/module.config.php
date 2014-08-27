@@ -3,8 +3,6 @@
 namespace M2smart;
 
 return array(
-    
-    
     'router' => array(
         'routes' => array(
             'm2smart-home' => array(
@@ -16,36 +14,35 @@ return array(
                         'action' => 'index',
                     ),
                 ),
-            ),   
-                'm2smart-admin-interna' => array(
-                'type' => 'Segment',    
+            ),
+            'm2smart-admin-interna' => array(
+                'type' => 'Segment',
                 'options' => array(
                     'route' => '/admin/[:controller[/:action]][/:id]',
-                     'constraints' => array(
-                        'id'=> '[0-9]+'
-                    )       
+                    'constraints' => array(
+                        'id' => '[0-9]+'
+                    )
                 ),
-            ),  
+            ),
             'm2smart-admin' => array(
-                'type' => 'Segment',    
+                'type' => 'Segment',
                 'options' => array(
                     'route' => '/admin/[:controller[/:action]]',
                     'defaults' => array(
-                        'action'=>'index',
-                        
+                        'action' => 'index',
                     ),
                 ),
-            ),      
-            
+            ),
         ),
     ),
     'controllers' => array(
         'invokables' => array(
             'M2smart\Controller\Index' => 'M2smart\Controller\IndexController',
-             'setores' => 'M2smartAdmin\Controller\SetoresController',
-             'funcionarios' => 'M2smartAdmin\Controller\FuncionariosController',
-         
-            ),
+            'setores' => 'M2smartAdmin\Controller\SetoresController',
+            'funcionarios' => 'M2smartAdmin\Controller\FuncionariosController',
+            'usuarios' => 'M2smartAdmin\Controller\UsuariosController',
+//             'm2smart-admin/auth' => 'M2smartAdmin\Controller\AuthController',
+        ),
     ),
     'view_manager' => array(
         'display_not_found_reason' => true,

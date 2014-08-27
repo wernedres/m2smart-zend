@@ -1,0 +1,36 @@
+<h3 class="alert alert-success">Usuarios</h3>
+<br/>
+
+
+<table class="table table-striped">
+    <tr class="success">
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Login</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+
+    <?php foreach ($this->data as $entity): ?>
+        <tr>
+            <td><?= $entity->getId() ?></td>
+            <td><?= $entity->getNome() ?></td>
+            <td><?= $entity->getLogin() ?></td>
+            <td>
+                <a class="btn btn-info glyphicon glyphicon-list" href="<?php echo $this->url('m2smart-admin-interna',array('controller' => 'usuarios', 'action' => 'edit', 'id' => $entity->getId()));
+    ?>"  >Editar</a></td>
+               
+                <td> 
+                <a class="btn btn-danger  glyphicon glyphicon-trash" href="<?php echo $this->url('m2smart-admin-interna',
+                        array('controller' => 'usuarios', 'action' => 'delete', 'id' => $entity->getId()));
+    ?>">Deletar</a>
+
+           </td>
+           
+        </tr>
+        
+    <?php endforeach; ?>
+
+</table>
+
+<p> <a class="btn btn-sm btn-success glyphicon " href="<?php echo $this->url('m2smart-admin',array('controller'=>'usuarios','action'=>'new'));?>" ><span class="glyphicon glyphicon-user">Novo</span></a></p>

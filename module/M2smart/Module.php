@@ -6,6 +6,7 @@ use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use M2smart\Service\Setor as SetorService;
 use M2smart\Service\Funcionario as FuncionarioService;
+use M2smart\Service\Usuario as UsuarioService;
 use M2smartAdmin\Form\Funcionario as FuncionarioFrm;
 
 class Module
@@ -37,6 +38,10 @@ class Module
                 },
             'M2smart\Service\Funcionario' => function($service) {
             return new FuncionarioService($service->get('Doctrine\ORM\EntityManager'));
+         
+                },
+            'M2smart\Service\Usuario' => function($service) {
+            return new UsuarioService($service->get('Doctrine\ORM\EntityManager'));
          
                 },
             'M2smartAdmin\Form\Funcionario' => function($service) {
