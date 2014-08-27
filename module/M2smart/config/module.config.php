@@ -33,6 +33,28 @@ return array(
                     ),
                 ),
             ),
+             'm2smart-admin-auth' => array(
+                'type' => 'literal',    
+                'options' => array(
+                    'route' => '/admin/auth',
+                    'defaults' => array(
+                        'action'=>'index',
+                        'controller'=>'m2smart-admin/auth',
+                        
+                    ),
+                ),
+            ),   
+             'm2smart-admin-logout' => array(
+                'type' => 'literal',    
+                'options' => array(
+                    'route' => '/admin/auth/logout',
+                    'defaults' => array(
+                        'action'=>'logout',
+                        'controller'=>'m2smart-admin/auth',
+                        
+                    ),
+                ),
+            ),            
         ),
     ),
     'controllers' => array(
@@ -41,9 +63,17 @@ return array(
             'setores' => 'M2smartAdmin\Controller\SetoresController',
             'funcionarios' => 'M2smartAdmin\Controller\FuncionariosController',
             'usuarios' => 'M2smartAdmin\Controller\UsuariosController',
-//             'm2smart-admin/auth' => 'M2smartAdmin\Controller\AuthController',
+            'm2smart-admin/auth' => 'M2smartAdmin\Controller\AuthController',
         ),
     ),
+    
+    'module_layouts'=> array(
+        'M2smart' => 'layout/layout',
+        'M2smartAdmin' => 'layout/layout-admin' 
+        
+    ),
+    
+    
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions' => true,

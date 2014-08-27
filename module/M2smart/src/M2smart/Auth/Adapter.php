@@ -1,6 +1,6 @@
 <?php
 
-namespace Livraria\Auth;
+namespace M2smart\Auth;
 
 use Zend\Authentication\Adapter\AdapterInterface,
     Zend\Authentication\Result;
@@ -24,22 +24,22 @@ class Adapter implements AdapterInterface {
         return $this->username;
     }
 
-    public function getPassword() {
-        return $this->password;
+    public function getSenha() {
+        return $this->senha;
     }
 
-    public function setPassword($password) {
-        $this->password = $password;
+    public function setSenha($senha) {
+        $this->senha = $senha;
         return $this;
     }
 
     public function authenticate() {
 
-        $repository = $this->em->getRepository("Livraria\Entity\User");
-        $user = $repository->findByEmailAndPassword($this->getUsername(),$this->getPassword());
+        $repository = $this->em->getRepository("M2smart\Entity\Usuario");
+        $usuario = $repository->findByLoginAndSenha($this->getUsername(),$this->getSenha());
 
-        if ($user) {
-            return new Result(Result::SUCCESS, array('user'=>$user), array('ok'));
+        if ($usuario) {
+            return new Result(Result::SUCCESS, array('usuario'=>$usuario), array('ok'));
         } else {
             return new Result(Result::FAILURE_CREDENTIAL_INVALID, null, array());
         }

@@ -80,10 +80,8 @@ class Usuario {
     }
 
     public function setSenha($senha) {
-        $hashSenha = hash('sha512', $senha.$this->salt);
-        for ($i = 0; $i < 64000; $i++)
-            $hashSenha = hash('sha512', $hashSenha);
-
+        $hashSenha = $this->encryptSenha($senha);
+        
         $this->senha = $hashSenha;
         return $this;
     }
@@ -92,13 +90,13 @@ class Usuario {
         $this->salt = $salt;
     }
 
-//    public function encryptPassword($senha) {
-//        $hashSenha = hash('sha512', $senha . $salt);
-//        for ($i = 0; $i < 64000; $i++)
-//            $hashSenha = hash('sha512', $hashSenha);
-//
-//        return $hashSenha;
-//    }
+    public function encryptSenha($senha) {
+        $hashSenha = hash('sha512', $senha . $salt);
+        for ($i = 0; $i < 64000; $i++)
+            $hashSenha = hash('sha512', $hashSenha);
+
+        return $hashSenha;
+    }
 
     public function toArray() {
         return array(

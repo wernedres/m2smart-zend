@@ -1,0 +1,28 @@
+
+
+<h4 align="center" class="alert alert-success">Àrea de Acesso</h4>
+
+<br/>
+
+<?php if($this->error):?>
+<p class="alert alert-danger"><b>Usuário ou Senha não Confere ###############################################################################################################################################</b></p>
+<?php endif;?>
+
+<?php 
+
+$form = $this->form;
+
+$form->setAttribute('action', $this->url( 'm2smart-admin-auth'));
+
+
+$form->prepare();
+echo $this->form()->openTag($form); 
+echo $this->formRow($form->get('login')),"<br/>" ;
+echo $this->formRow($form->get('senha')),"<br/>" ;
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();
+
+
+
+
+?>
