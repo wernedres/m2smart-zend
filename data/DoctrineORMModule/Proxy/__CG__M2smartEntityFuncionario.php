@@ -69,6 +69,18 @@ class Funcionario extends \M2smart\Entity\Funcionario implements \Doctrine\ORM\P
         return parent::setNome($nome);
     }
 
+    public function getProfissao()
+    {
+        $this->__load();
+        return parent::getProfissao();
+    }
+
+    public function setProfissao($profissao)
+    {
+        $this->__load();
+        return parent::setProfissao($profissao);
+    }
+
     public function getSetor()
     {
         $this->__load();
@@ -114,7 +126,7 @@ class Funcionario extends \M2smart\Entity\Funcionario implements \Doctrine\ORM\P
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'nome', 'telefone', 'salario', 'setor');
+        return array('__isInitialized__', 'id', 'nome', 'profissao', 'telefone', 'salario', 'setor');
     }
 
     public function __clone()

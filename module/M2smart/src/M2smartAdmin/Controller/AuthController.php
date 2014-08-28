@@ -49,7 +49,7 @@ class AuthController extends AbstractActionController {
         $auth->setStorage(new SessionStorage('M2smartAdmin')); //setando o storage e tratando da autenticação da M2smarAdmin
         $auth->clearIdentity(); //Limpa a indentidade do camarada  e o cara não esta mais logado no sittema
 
-        return $this->redirect()->toRoute('m2smart-admin-auth');
+        return $this->redirect()->toRoute('m2smart-home');
     }
 
     }

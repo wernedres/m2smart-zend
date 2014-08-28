@@ -34,6 +34,19 @@ class Funcionario extends Form {
                 'placeholder' => 'Entre com o nome'
             )
         ));
+          $this->add(array( 
+          'name' => 'profissao',
+            'options' => array(
+                'type' => 'text',
+                'label' => 'Profissao'
+            ),
+            'attributes' => array(
+                'id' => 'profissao',
+              
+                'placeholder' => 'Entre com a Profissao'
+            )
+        ));
+        
         
         
      
@@ -53,6 +66,7 @@ class Funcionario extends Form {
             ),
             'attributes' => array(
                 'id' => 'telefone',
+                'value'=> '(95) ',
                 'placeholder' => 'Entre com o Nº de Telefone'
             )
         ));
@@ -66,6 +80,7 @@ class Funcionario extends Form {
             ),
             'attributes' => array(
                 'id' => 'salario',
+                  'value'=> 'R$ ',
                 'placeholder' => 'Entre com o Salario'
             )
         ));

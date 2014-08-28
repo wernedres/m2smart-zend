@@ -1,14 +1,13 @@
 <h4 class="alert alert-success">Funcionarios</h4>
 <br/>
-
 <p> <a class="btn btn-sm btn-success glyphicon " href="<?php echo $this->url('m2smart-admin', array('controller' => 'funcionarios', 'action' => 'new')); ?>">Novo</a></p>
-
 
 <table class="table table-striped">
     <thead>
         <tr class="success">
             <th>Id</th>
             <th>Nome</th>
+            <th>Profissão</th>
             <th>Setor</th>
             <th>Telefone</th>
             <th>Salario</th>
@@ -20,6 +19,7 @@
         <tr>
             <td><?= $entity->getId() ?></td>
             <td><?= $entity->getNome() ?></td>
+            <td><?= $entity->getProfissao() ?></td>
             <td><?= $entity->getSetor() ?></td>
             <td><?= $entity->getTelefone() ?></td>
             <td><?= $entity->getSalario() ?></td>

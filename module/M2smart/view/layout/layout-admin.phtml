@@ -47,10 +47,10 @@
                    
                         
                         <?php if ($this->UserIdentity('M2smartAdmin')): ?>
-                            <li class="active"><a href="<?php echo $this->url('m2smart-admin', array('controller' => 'setores')) ?>">Setores</a></li>
-                            <li class="active"><a href="<?php echo $this->url('m2smart-admin', array('controller' => 'funcionarios')) ?>">Funcionarios</a></li>
-                            <li class="active"><a href="<?php echo $this->url('m2smart-admin', array('controller' => 'usuarios')) ?>">Usuarios</a></li>
-                            <li class="active"><a href="<?php echo $this->url('m2smart-admin-logout') ?>">Logout</a></li>
+                        <li class="active"><a class="glyphicon glyphicon-th" href="<?php echo $this->url('m2smart-admin', array('controller' => 'setores')) ?>">Setores</a></li>
+                        <li class="active"><a class="glyphicon glyphicon-heart" href="<?php echo $this->url('m2smart-admin', array('controller' => 'funcionarios')) ?>">Funcionarios</a></li>
+                            <li class="active"><a class="glyphicon glyphicon glyphicon-user" href="<?php echo $this->url('m2smart-admin', array('controller' => 'usuarios')) ?>">Usuarios</a></li>
+                            <li class="active"><a class="glyphicon glyphicon-off" href="<?php echo $this->url('m2smart-admin-logout') ?>">Logout</a></li>
                <?php endif; ?>
                     </ul>
 
@@ -61,7 +61,7 @@
         <?php echo $this->content; ?>
             <hr>
             <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. </p>
+                <p class="glyphicon glyphicon-earphone" > (095)9136-3420 Wérnedres Coutinho de Souza</p>
             </footer>
         </div> <!-- /container -->
 <?php echo $this->inlineScript() ?>

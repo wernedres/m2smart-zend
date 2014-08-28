@@ -25,6 +25,11 @@ class Funcionario {
      * @var string
      */
     protected $nome;
+       /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    protected $profissao;
 
     /**
      * @ORM\ManyToOne(targetEntity="M2smart\Entity\Setor", inversedBy="funcionario")
@@ -32,6 +37,7 @@ class Funcionario {
      * @var int
      */
     protected $setor;
+  
 
     /**
      * @ORM\Column(type="text")
@@ -69,6 +75,15 @@ class Funcionario {
         return $this;
     }
 
+    public function getProfissao() {
+        return $this->profissao;
+    }
+
+    public function setProfissao($profissao) {
+        $this->profissao = $profissao;
+        return $this;
+    }
+
     public function getSetor() {
         return $this->setor;
     }
@@ -102,6 +117,7 @@ class Funcionario {
         return array(
             'id' => $this->getId(),
             'nome' => $this->getNome(),
+            'profissao' => $this->getProfissao(),
             'telefone' => $this->getTelefone(),
             'salario' => $this->getSalario(),
             'setor' => $this->getSetor()

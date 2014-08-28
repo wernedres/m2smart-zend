@@ -1,6 +1,6 @@
 
 
-<h3>Novo Funcionario</h3>
+<h3  class="alert alert-success"><b  class="glyphicon glyphicon-send"></b>Novo Funcionario</h3>
 
 <br/>
 
@@ -16,6 +16,7 @@ $form->prepare();
 echo $this->form()->openTag($form); 
 echo $this->formHidden($form->get('id'));
 echo $this->formRow($form->get('nome'));
+echo $this->formRow($form->get('profissao'));
 echo $this->formRow($form->get('setor'));
 echo $this->formRow($form->get('telefone'));
 echo $this->formRow($form->get('salario'))."<br/>"."<br/>";
